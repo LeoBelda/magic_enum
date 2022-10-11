@@ -1470,6 +1470,12 @@ constexpr E& operator^=(E& lhs, E rhs) noexcept {
 
 } // namespace magic_enum::bitwise_operators
 
+template <typename E>
+constexpr const char* toString(E e) { return enum_name(e).data(); }
+
+template <typename E>
+E fromString(const char* pcString) { return enum_cast<E>(pcString).value(); }
+
 } // namespace magic_enum
 
 #if defined(__clang__)
